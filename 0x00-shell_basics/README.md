@@ -55,4 +55,5 @@ script creates directories welcome/, welcome/to, welcome/to/school in the curren
 ### 103-commas<br>
 script lists all files and directories of the current directory, separated by commas<br>
 
-
+### school.mgc<br>
+magic file that can be used with the command file to detect School data files<br>

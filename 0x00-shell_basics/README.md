@@ -19,4 +19,7 @@ script displays current directory contents in long format with user and groups I
 ### 6-firstdirectory<br>
 script creates a dir named my_first_directory in the /tmp/ directory<br>
 
+### 7-movethatfile<br>
+script moves file from /tmp/ directory to /tmp/my_first_directory<br>
+
 

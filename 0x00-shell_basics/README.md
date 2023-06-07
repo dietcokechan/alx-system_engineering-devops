@@ -1,19 +1,22 @@
-<h3>0-current_working_directory<h3/><br>
-file prints the absolute path name of the current working directory<br>
+### 0-current_working_directory<br>
+script prints the absolute path name of the current working directory<br>
 
-<h3>1-listit<h3/><br> 
-file display contents list of the current directory<br>
+### 1-listit<br> 
+script display contents list of the current directory<br>
 
-<h3>2-bring_me_home<h3/><br> 
-file changes the working directory to the user's home directory<br>
+### 2-bring_me_home<br> 
+script changes the working directory to the user's home directory<br>
 
-<h3>3-listfiles<h3/><br> 
-file displays current dir contents in long format<br>
+### 3-listscripts<br> 
+script displays current dir contents in long format<br>
 
-<h3>4-listmorefiles<h3/><br> 
-file displays current dir contents including hidden files<br>
+### 4-listmorescripts<br> 
+script displays current dir contents including hidden scripts<br>
 
-<h3>5-listfilesdigitonly<h3/><br>
-file displays current directory contents in long format with user and groups IDs displayed nurmerically and hidden files<br>
+### 5-listscriptsdigitonly<br>
+script displays current directory contents in long format with user and groups IDs displayed nurmerically and hidden scripts<br>
+
+### 6-firstdirectory<br>
+script creates a dir named my_first_directory in the /tmp/ directory<br>
 
 

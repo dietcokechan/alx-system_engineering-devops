@@ -37,4 +37,7 @@ script lists all files in the current directory and the parent of the working di
 ### 12-file_type<br>
 script prints the type of file /tmp/iamafile<br>
 
+### 13-symbolic_link<br>
+script creates a symbolic link to /bin/ls named __ln__<br>
+
 

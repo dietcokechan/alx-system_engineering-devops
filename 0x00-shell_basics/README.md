@@ -52,4 +52,7 @@ script deletes all files in the current working dir that end with the character 
 ### 102-tree<br>
 script creates directories welcome/, welcome/to, welcome/to/school in the current dir<br>
 
+### 103-commas<br>
+script lists all files and directories of the current directory, separated by commas<br>
+
 

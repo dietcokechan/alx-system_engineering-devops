@@ -46,4 +46,5 @@ script copies all html files from current working dir to parent of working dir b
 ### 100-lets_move<br>
 script moves all files beginning with an uppercase letter to the directory /tmp/u. You can assume that the directory /tmp/u will exist when we will run your script<br>
 
-
+### 101-clean_emacs<br>
+script deletes all files in the current working dir that end with the character ~<br>

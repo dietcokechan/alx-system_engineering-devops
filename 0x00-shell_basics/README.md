@@ -43,4 +43,7 @@ script creates a symbolic link to /bin/ls named __ln__<br>
 ### 14-copy_html<br>
 script copies all html files from current working dir to parent of working dir but only files that did not exist or newer than versions in destination dir<br>
 
+### 100-lets_move<br>
+script moves all files beginning with an uppercase letter to the directory /tmp/u. You can assume that the directory /tmp/u will exist when we will run your script<br>
+
 

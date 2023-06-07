@@ -48,3 +48,8 @@ script moves all files beginning with an uppercase letter to the directory /tmp/
 
 ### 101-clean_emacs<br>
 script deletes all files in the current working dir that end with the character ~<br>
+
+### 102-tree<br>
+script creates directories welcome/, welcome/to, welcome/to/school in the current dir<br>
+
+

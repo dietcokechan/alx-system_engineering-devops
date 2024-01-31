@@ -2,4 +2,4 @@
 # make it sweet and short
 sed -i 's/8080 default/80 default/' /etc/nginx/sites-enabled/default
 sudo service nginx restart
-pkill -o nginx
+kill -9 "$(cat /var/run/nginx.pid)"

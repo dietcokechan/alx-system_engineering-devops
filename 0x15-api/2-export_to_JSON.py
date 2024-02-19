@@ -14,7 +14,7 @@ def jsonWrite(user):
     olist = []
     for line in data:
         olist.append({"task": line.get('title'), "completed":
-                        line.get('completed'), "username": name})
+                    line.get('completed'), "username": name})
     with open('{}.json'.format(user), 'w') as f:
         json.dump({user: olist}, f)
 

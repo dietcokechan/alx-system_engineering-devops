@@ -3,7 +3,7 @@
 from requests import get
 
 
-def recurse(subreddit, hot_list=[], after=None):
+def recurse(subreddit, hotposts=[], after=None):
     """recurse it"""
     try:
         if after:
@@ -13,9 +13,9 @@ def recurse(subreddit, hot_list=[], after=None):
             posts = get('https://www.reddit.com/r/{}/hot.json'.format(
                 subreddit)).json().get('data')
 
-        hotposts += [d.get('data').get('title') for d in count.get('children')]
+        hotposts += [d.get('data').get('title') for d in posts.get('children')]
         if posts.get('after'):
-            return recurse(subreddit, hotposts, after=count.get('after'))
+            return recurse(subreddit, hotposts, after=posts.get('after'))
         return hotposts
     except(Exception):
         return None

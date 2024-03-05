@@ -12,9 +12,5 @@ def number_of_subscribers(subreddit):
 
     try:
         return subs.get("data").get("subscribers")
-    except(e):
+    except(Exception):
         return 0
-
-
-if __name__ == "__main__":
-    number_of_subscribers(argv[1])

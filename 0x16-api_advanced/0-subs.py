@@ -3,6 +3,7 @@
 from requests import get
 from sys import argv
 
+
 def number_of_subscribers(subreddit):
     """return number of subreddit subs"""
     header = {"User-Agent": "diet coke"}
@@ -11,7 +12,7 @@ def number_of_subscribers(subreddit):
 
     try:
         return subs.get("data").get("subscribers")
-    except:
+    except(e):
         return 0
 
 

@@ -9,6 +9,6 @@ def top_ten(subreddit):
         posts = get('https://www.reddit.com/r/{}/hot.json?count=10'.format(
             subreddit)).json().get('data').get('children')
         print('\n'.join([p.get('data').get('title')
-                        for p in posts][:10]))
+                        for p in posts]))
     except Exception:
         print("None")

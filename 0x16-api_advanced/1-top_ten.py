@@ -6,8 +6,9 @@ from requests import get
 def top_ten(subreddit):
     """get top ten"""
     try:
-        posts = get('https://www.reddit.com/r/{}/hot.json?count=10'.format(
-            subreddit)).json().get('data').get('children')
+        posts = get('https://www.reddit.com/r/{}/hot.json?count=10'
+                    .format(subreddit),
+                    allow_redirects=False).json().get('data').get('children')
         print('\n'.join([p.get('data').get('title')
                         for p in posts]))
     except Exception:

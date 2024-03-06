@@ -28,10 +28,12 @@ def count_words(subreddit, word_list):
     head = {'User-Agent': 'Diet Coke'}
     if after:
         count = get('https://www.reddit.com/r/{}/hot.json?after={}'.format(
-            subreddit, after), headers=head).json().get('data')
+            subreddit, after), headers=head,
+            allow_redirects=False).json().get('data')
     else:
         count = get('https://www.reddit.com/r/{}/hot.json'.format(
-            subreddit), headers=head).json().get('data')
+            subreddit), headers=head,
+            allow_redirects=False).json().get('data')
     hotposts += [dic.get('data').get('title').lower()
                 for dic in count.get('children')]
     after = count.get('after')

@@ -10,5 +10,5 @@ def top_ten(subreddit):
             subreddit)).json().get('data').get('children')
         print('\n'.join([p.get('data').get('title')
                         for p in posts][:10]))
-    except(Exception):
+    except Exception:
         print("None")

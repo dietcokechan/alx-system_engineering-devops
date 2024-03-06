@@ -17,5 +17,5 @@ def recurse(subreddit, hotposts=[], after=None):
         if posts.get('after'):
             return recurse(subreddit, hotposts, after=posts.get('after'))
         return hotposts
-    except(Exception):
+    except Exception:
         return None

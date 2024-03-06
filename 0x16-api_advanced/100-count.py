@@ -2,46 +2,39 @@
 """count it"""
 from requests import get
 
+hotposts = []
+after = None
 
-def count_words(subreddit, word_list, instances={}, after="", count=0):
+
+def count_all(hotposts, word_list):
+    dic = {word.lower(): 0 for word in word_list}
+    for post in hotposts:
+        words = post.split(' ')
+        for word in words:
+            if dic.get(word) is not None:
+                dic[word] += 1
+
+    for i in sorted(dic, key=dic.get, reverse=True):
+        if dic.get(i):
+            for j in word_list:
+                if i == j.lower():
+                    print("{}: {}".format(j, dic[i]))
+
+
+def count_words(subreddit, word_list):
+    global hotposts
+    global after
     """count it"""
-    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
-    header = {
-        "User-Agent": "Diet Coke"
-    }
-    options = {
-        "after": after,
-        "count": count,
-        "limit": 100
-    }
-    res = get(url, headers=header, params=options,
-                            allow_redirects=False)
-    try:
-        words = res.json()
-        if res.status_code == 404:
-            raise Exception
-    except Exception:
-        print("")
-        return
-
-    words = words.get("data")
-    after = words.get("after")
-    count += words.get("dist")
-    for i in words.get("children"):
-        title = i.get("data").get("title").lower().split()
-        for j in word_list:
-            if j.lower() in title:
-                n = len([t for t in title if t == j.lower()])
-                if instances.get(j) is None:
-                    instances[j] = n
-                else:
-                    instances[j] += n
-
-    if after is None:
-        if len(instances) == 0:
-            print("")
-            return
-        instances = sorted(instances.items(), key=lambda kv: (-kv[1], kv[0]))
-        [print("{}: {}".format(k, v)) for k, v in instances]
+    head = {'User-Agent': 'Diet Coke'}
+    if after:
+        count = get('https://www.reddit.com/r/{}/hot.json?after={}'.format(
+            subreddit, after), headers=head).json().get('data')
     else:
-        count_words(subreddit, word_list, instances, after, count)
+        count = get('https://www.reddit.com/r/{}/hot.json'.format(
+            subreddit), headers=head).json().get('data')
+    hotposts += [dic.get('data').get('title').lower()
+                for dic in count.get('children')]
+    after = count.get('after')
+    if after:
+        return count_words(subreddit, word_list)
+    return count_all(hotposts, word_list)

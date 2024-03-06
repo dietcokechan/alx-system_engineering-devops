@@ -9,5 +9,5 @@ def number_of_subscribers(subreddit):
         subreddit)).json()
     try:
         return subs.get('data').get('subscribers')
-    except Exception:
+    except:
         return 0

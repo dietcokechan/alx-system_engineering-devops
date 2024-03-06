@@ -6,8 +6,8 @@ from requests import get
 def number_of_subscribers(subreddit):
     """return number of subreddit subs"""
     subs = get('https://www.reddit.com/r/{}/about.json'.format(
-        subreddit)).json()
+        subreddit), allow_redirects=False).json()
     try:
         return subs.get('data').get('subscribers')
-    except:
+    except Exception:
         return 0
